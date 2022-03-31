@@ -1,0 +1,11 @@
+﻿{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "paths": {
+      "asnjs": ["./node_modules/asnjs/asnjs.d.mts"],
+      "itsreadjs": ["./itsread.d.mts"],
+      "Ieee1609Dot2js":["./node_modules/Ieee1609Dot2js/Ieee1609Dot2js.d.mts"],
+      "EtsiTs102941Data":["./node_modules/EtsiTs102941js/EtsiTs102941.d.mts"]
+    }
+  }
+}

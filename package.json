@@ -1,0 +1,23 @@
+{
+  "name": "itsread",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./itsread.cjs",
+  "module": "./itsread.mjs",
+  "author": {
+    "name": "Denis Filatov"
+  },
+  "scripts": {
+    "test": "node ./test.mjs data/CERT_IUT_A_AA.oer data/CERT_IUT_A_RCA.oer"
+  },
+  "dependencies": {
+    "Ieee1609Dot2js": "fillabs/ieee1609dot2js",
+    "EtsiTs102941js": "fillabs/EtsiTs102941js",
+    "asnjs": "fillabs/asnjs",
+    "esm": "^3.2.25"
+  },
+  "exports": {
+    "default": "./itsread.mjs",
+    "require": "./itsread.cjs"
+  }
+}
