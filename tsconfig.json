@@ -5,7 +5,9 @@
       "asnjs": ["./node_modules/asnjs/asnjs.d.mts"],
       "itsreadjs": ["./itsread.d.mts"],
       "Ieee1609Dot2js":["./node_modules/Ieee1609Dot2js/Ieee1609Dot2js.d.mts"],
-      "EtsiTs102941Data":["./node_modules/EtsiTs102941js/EtsiTs102941.d.mts"]
+      "Ieee1609Dot2Dot1js":["./node_modules/Ieee1609Dot2Dot1js/Ieee1609.2.1.d.mts"],
+      "EtsiTs102941Data":["./node_modules/EtsiTs102941js/EtsiTs102941.d.mts"],
+      "EtsiTs103759Data":["./node_modules/EtsiTs103759js/EtsiTs103759.d.mts"]
     }
   }
 }

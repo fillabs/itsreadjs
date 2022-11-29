@@ -4,6 +4,10 @@ import {Ieee1609Dot2Certificate, Ieee1609Dot2Data} from "Ieee1609Dot2js";
 
 import {EtsiTs102941Data} from "EtsiTs102941js";
 
+import {ScmsPdu} from "Ieee1609Dot2Dot1js";
+
+import {EtsiTs103759Data} from "EtsiTs103759js";
+
 export const ItsSecRead = async function(a) {
     var dc, os, data;
     var ret = [];
