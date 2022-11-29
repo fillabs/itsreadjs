@@ -1,12 +1,13 @@
 {
-  "name": "itsread",
-  "version": "0.0.0",
-  "description": "",
+  "name": "itsreadjs",
+  "version": "0.0.1",
+  "description": "The framework to read ITS security elements based on IEEE 1609.2 data types",
   "main": "./itsread.cjs",
   "module": "./itsread.mjs",
   "author": {
     "name": "Denis Filatov"
   },
+  "repository": "github:fillabs/itsreadjs",
   "scripts": {
     "test": "node ./test.mjs data/CERT_IUT_A_AA.oer data/CERT_IUT_A_RCA.oer"
   },
@@ -19,7 +20,7 @@
     "inspect-custom-symbol": "^1.1.1"
   },
   "exports": {
-    "default": "./itsread.mjs",
-    "require": "./itsread.cjs"
+    "require": "./itsread.cjs",
+    "default": "./itsread.mjs"
   }
 }
