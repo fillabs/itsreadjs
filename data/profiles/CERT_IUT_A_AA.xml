@@ -1,0 +1,44 @@
+<!-- Authorization authority certificate without any region restriction -->
+<certificate>
+	<version>3</version>
+	<signer type="digest" name="CERT_IUT_A_RCA"/>
+	<subject type="AA" name="">
+		<!-- verification_key -->
+		<attribute type="verification_key">
+			<public_key algorithm="ecdsa_nistp256_with_sha256">
+				<ecc_point type="compressed"/>
+			</public_key>
+		</attribute>
+		<!-- encryption_key -->
+		<attribute type="encryption_key">
+			<public_key sym_alg="0" algorithm="0">
+				><ecc_point type="compressed"/>
+			</public_key>
+		</attribute>
+		<!-- assurance_level -->
+		<attribute type="assurance_level">
+			<assurance level="4" confidence="0"/>
+		</attribute>
+		<!-- its_aid_list -->
+		<attribute type="its_aid_list">
+			<aid value="CAM"/>  <!--CAM-->
+			<aid value="DENM"/>  <!--DENM-->
+			<aid value="SPAT"/> <!-- TLM / SPAT -->
+			<aid value="MAP"/> <!-- RLT / MAP-->
+			<aid value="IVI"/> <!-- IVI -->
+			<aid value="SREM"/> <!-- TLC REQUEST-->
+			<aid value="SSEM"/> <!-- TLC RESPONSE -->
+			<aid value="GN-MGMT"/> <!-- GN-MGMT -->
+		</attribute>
+		<attribute type="its_aid_ssp_list">
+			<ssp aid="CRT-REQ">01 32</ssp> <!-- Cert request:  -->
+		</attribute>
+	</subject>
+	<validity>
+		<restriction type="time" start="-365d" end="+730d"/>
+		<restriction type="region">
+			<none/>
+		</restriction>
+	</validity>
+	<signature algorithm="0"/>
+</certificate>

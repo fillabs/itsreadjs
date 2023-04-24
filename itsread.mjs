@@ -15,16 +15,9 @@ export const ItsSecRead = async function(a) {
     dc = new DataCursor(a);
     while (dc.index < dc.byteLength) {
         let type = dc.getUint8(); dc.index--;
-        if(type === 0x80){
+        if((type|0x80) === 0x80){
             // Parse Certificate
             os = Ieee1609Dot2Certificate.from_oer(dc);
-            try {
-                let d = await os.digest();
-                console.log("Digest: " + d.toString("hex"));
-            }
-            catch(e){
-                console.log(e);
-            }
         } else {
             // Parse Message
             console.log("" + dc.index.toString(16) + ": Data");

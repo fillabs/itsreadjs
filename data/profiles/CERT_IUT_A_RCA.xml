@@ -1,0 +1,49 @@
+<certificate>
+	<version>3</version>
+	<signer type="self"></signer>
+	<subject type="ROOT" name="ETSI Test RCA C certificate">
+		<!-- verification_key -->
+		<attribute type="verification_key">
+			<public_key algorithm="ecdsa_nistp256_with_sha256">
+				<ecc_point type="compressed"/>
+			</public_key>
+		</attribute>
+		<!-- assurance_level -->
+		<attribute type="assurance_level">
+			<assurance level="6" confidence="0"/>
+		</attribute>
+		<!-- its_aid_list -->
+		<attribute type="its_aid_list">
+			<aid value="CAM"/>  <!-- CAM -->
+			<aid value="DENM"/>  <!-- DENM -->
+			<aid value="SPAT"/> <!-- TLM / SPAT -->
+			<aid value="MAP"/> <!-- RLT / MAP-->
+			<aid value="IVI"/> <!-- IVI -->
+			<aid value="SREM"/> <!-- TLC REQUEST-->
+			<aid value="SSEM"/> <!-- TLC RESPONSE -->
+			<aid value="GN-MGMT"/> <!-- GN-MGMT -->
+			<aid value="CRT-REQ">01 C0/FF 3F</aid> <!-- certIssuePermissions for permissions end in EC and AT certificates -->
+			<!-- aid value="96"/-->  <!-- not allocated -->
+			<!-- aid value="97"/-->  <!-- not allocated -->
+			<!-- aid value="98"/-->  <!-- not allocated -->
+			<!-- aid value="99"/-->  <!-- not allocated -->
+			<!-- aid value="100"/-->  <!-- not allocated -->
+			<!-- aid value="101"/-->  <!-- not allocated -->
+			<!-- aid value="102"/-->  <!-- not allocated -->
+		</attribute>
+		<attribute type="its_aid_list" minChainLength="1" eeType="app">
+			<aid value="CRT-REQ">01 3E/FF C1</aid> <!-- certIssuePermissions for permissions end in EA and AA certificates -->
+		</attribute>
+		<attribute type="its_aid_ssp_list">
+			<ssp aid="CRL">01</ssp> <!-- CRL  -->
+			<ssp aid="CTL">01 38</ssp> <!-- CTL  -->
+		</attribute>
+	</subject>
+	<validity>
+		<restriction type="time" start="-365d" end="+730d"/>
+		<restriction type="region">
+			<none/>
+		</restriction>
+	</validity>
+	<signature algorithm="0"/>
+</certificate>

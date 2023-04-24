@@ -21,11 +21,44 @@
   import {ItsSecRead} from "itsreadjs"
   import {Ieee1609Dot2Certificate} from 'Ieee1609Dot2js'
 
+  function preProcessHtmlElements(el){
+    if(el.asn1 !== undefined && 
+       (el.classList.contains('sequence') || el.classList.contains('array'))){
+        // insert i before the sequence name
+        if(el.parentNode){
+          let n = el.previousElementSibling;
+          if(n && n.classList.contains('name')){
+            let i = document.createElement('I');
+            i.target = el;
+            i.classList.add('folder', 'fa-sharp', 'fa-solid', 'fa-caret-down');
+            i.addEventListener('click', (event) => {
+              let i = event.currentTarget;
+              let s = i.target;
+              if(s.hidden == false){
+                s.hidden = true;
+                i.classList.remove('fa-caret-down');
+                i.classList.add('fa-caret-right');
+              }else{
+                s.hidden = false;
+                i.classList.remove('fa-caret-right');
+                i.classList.add('fa-caret-down');
+              }
+            });
+            el.parentNode.insertBefore(i, n);
+          }
+        }
+    }
+    for (el = el.firstElementChild; el; el = el.nextElementSibling){
+      preProcessHtmlElements(el);
+    }
+  }
+  
   async function updateContent(c){
     let l = document.getElementById("content");
     while(l.firstChild) l.removeChild(l.lastChild);
     let s = c.htmlElement();
     if(s){
+      preProcessHtmlElements(s);
       l.appendChild(s);
     }  
   }
@@ -176,8 +209,6 @@
   min-width:200px;
   height: 200px;
 }
-#certificates {
-}
 span.certname {
   cursor:pointer; 
 }
@@ -189,14 +220,23 @@ span.certname.active {
 #content div.sequence>div, #content div.choice>div , #content div.array>div {
   padding-left: 20px;
 }
-#content div.array>div:before {
-  content:"- ";
+#content i.folder {
+  display: block;
+  margin-right: 5px;
+  cursor: pointer;
+  float: left;
 }
+
 #content span.value:before {
   content: " = ";
 }
+#content div:has(>div.sequence)>span.name {
+  display:block;
+}
+
  </style>
- </head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
  <body>
   <div id="screen">
     <div id="sidebar">

@@ -1,0 +1,36 @@
+<!-- General authorization ticket certificate without any region restriction -->
+<certificate>
+	<version>3</version>
+	<signer type="digest" name="CERT_IUT_A_AA"/>
+	<subject type="AT" name="">
+		<!-- verification_key -->
+		<attribute type="verification_key">
+			<public_key algorithm="0">
+				<ecc_point type="compressed"/>
+			</public_key>
+		</attribute>
+		<!-- encryption_key -->
+		<attribute type="encryption_key">
+			<public_key sym_alg="0" algorithm="0">
+				><ecc_point type="compressed"/>
+			</public_key>
+		</attribute>
+		<!-- assurance_level -->
+		<attribute type="assurance_level">
+			<assurance level="3"/>
+		</attribute>
+		<!-- its_aid_ssp_list -->
+		<attribute type="its_aid_ssp_list">
+			<ssp aid="CAM">01 FF FC</ssp>  <!-- CAM -->
+			<ssp aid="DENM">01 FF FF FF</ssp>  <!-- DENM -->
+			<ssp aid="GN-MGMT"></ssp> <!--ssp aid="GN-MGMT">00</ssp-->  <!-- GN-MGMT -->
+		</attribute>
+	</subject>
+	<validity>
+		<restriction type="time" start="+0d" end="+365d"/>
+		<restriction type="region">
+			<none/>
+		</restriction>
+	</validity>
+	<signature algorithm="0"/>
+</certificate>
